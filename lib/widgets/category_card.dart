@@ -1,15 +1,13 @@
-import 'dart:math';
+// ignore_for_file: file_names, sized_box_for_whitespace, use_key_in_widget_constructors
 import 'package:flutter/material.dart';
 import 'package:animated_button/animated_button.dart';
-import 'package:emoji_game/screens/gameScreen.dart';
-import 'package:emoji_game/utilities/constants.dart';
 
 class CategoryCard extends StatelessWidget {
   final Color cardColor;
   final String title;
   final Widget child;
   final String imageDirectory;
-  CategoryCard({
+  const CategoryCard({
     required this.cardColor,
     required this.title,
     required this.child,
@@ -17,35 +15,38 @@ class CategoryCard extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
+    double widthMain = MediaQuery.of(context).size.width;
+    double heightMain = MediaQuery.of(context).size.height;
+
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 12),
+      margin: const EdgeInsets.symmetric(vertical: 12),
       child: AnimatedButton(
-        width: MediaQuery.of(context).size.width - 30,
-        height: (MediaQuery.of(context).size.height / (8.3)),
+        width: widthMain*0.92,
+        height: (heightMain / (8.3)),
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => this.child),
+            MaterialPageRoute(builder: (context) => child),
           );
         },
-        color: this.cardColor,
+        color: cardColor,
         child: Row(
           children: [
             SizedBox(
-              width: 20,
+              width: widthMain*0.1,
             ),
             Container(
-              width: 100,
+              width: widthMain*0.27,
               child: Image.asset(
-                this.imageDirectory,
+                imageDirectory,
               ),
             ),
             SizedBox(
-              width: 35.0,
+              width: widthMain*0.1,
             ),
             Text(
-              this.title,
-              style: TextStyle(
+              title,
+              style: const TextStyle(
                 fontFamily: 'Poppins',
                 fontSize: 25, //customize size here
                 fontWeight: FontWeight.w600, //customize depth here

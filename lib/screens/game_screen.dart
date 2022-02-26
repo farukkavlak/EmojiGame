@@ -1,10 +1,6 @@
-import 'package:emoji_game/data/emojisSeries.dart';
+// ignore_for_file: file_names, must_be_immutable, use_key_in_widget_constructors
 import 'package:flutter/material.dart';
-import 'package:emoji_game/screens/moviesScreen.dart';
-import 'package:emoji_game/screens/seriesScreen.dart';
-import 'package:emoji_game/screens/homeScreen.dart';
 import 'package:emoji_game/utilities/constants.dart';
-import 'package:emoji_game/data/emojisMovies.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:animated_button/animated_button.dart';
 
@@ -34,7 +30,7 @@ class _GameScreenState extends State<GameScreen> {
       child: Text(
         kAlphabet[index].toUpperCase(),
         textAlign: TextAlign.center,
-        style: TextStyle(
+        style: const TextStyle(
           fontFamily: 'Poppins',
           fontSize: 13, //customize size here
           fontWeight: FontWeight.w600,
@@ -57,7 +53,7 @@ class _GameScreenState extends State<GameScreen> {
           child: Container(
             width: 60,
             height: 70,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(Radius.circular(10)),
               boxShadow: [
@@ -68,8 +64,8 @@ class _GameScreenState extends State<GameScreen> {
                 ),
               ],
             ),
-            padding: EdgeInsets.all(10),
-            margin: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             child: FittedBox(
               fit: BoxFit.contain,
               child: Center(
@@ -92,6 +88,7 @@ class _GameScreenState extends State<GameScreen> {
     );
   }
 
+  @override
   void initState() {
     super.initState();
     initWords();
@@ -158,7 +155,7 @@ class _GameScreenState extends State<GameScreen> {
           buttons: [
             DialogButton(
               radius: BorderRadius.circular(10),
-              child: Icon(
+              child: const Icon(
                 Icons.arrow_forward,
                 size: 30.0,
               ),
@@ -186,7 +183,7 @@ class _GameScreenState extends State<GameScreen> {
           buttons: [
             DialogButton(
               radius: BorderRadius.circular(10),
-              child: Icon(
+              child: const Icon(
                 Icons.arrow_forward,
                 size: 30.0,
               ),
@@ -230,8 +227,8 @@ class _GameScreenState extends State<GameScreen> {
         backgroundColor: kLightYellow,
         elevation: 0,
         leading: IconButton(
-          padding: EdgeInsets.all(20.0),
-          icon: Icon(
+          padding: const EdgeInsets.all(20.0),
+          icon: const Icon(
             Icons.arrow_back_ios_outlined,
             color: Colors.black54,
           ),
@@ -241,8 +238,8 @@ class _GameScreenState extends State<GameScreen> {
         ),
         actions: [
           IconButton(
-            padding: EdgeInsets.all(20.0),
-            icon: Icon(
+            padding: const EdgeInsets.all(20.0),
+            icon: const Icon(
               Icons.shopping_cart_outlined,
               color: Colors.black54,
             ),
@@ -256,7 +253,7 @@ class _GameScreenState extends State<GameScreen> {
             Expanded(
               flex: 1,
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 35.0),
+                margin: const EdgeInsets.symmetric(horizontal: 35.0),
                 alignment: Alignment.center,
                 child: createRow(),
               ),
@@ -264,7 +261,7 @@ class _GameScreenState extends State<GameScreen> {
             Expanded(
               flex: 2,
               child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 35.0),
+                  margin: const EdgeInsets.symmetric(horizontal: 35.0),
                   alignment: Alignment.center,
                   child: Text(
                     hiddenWord,
@@ -275,7 +272,7 @@ class _GameScreenState extends State<GameScreen> {
             Expanded(
               flex: 2,
               child: Container(
-                padding: EdgeInsets.fromLTRB(10.0, 0, 8.0, 0),
+                padding: const EdgeInsets.fromLTRB(10.0, 0, 8.0, 0),
                 child: Table(
                   children: [
                     TableRow(children: [
@@ -348,7 +345,7 @@ class _GameScreenState extends State<GameScreen> {
                       ),
                     ]),
                     TableRow(children: [
-                      TableCell(
+                      const TableCell(
                         child: Text(''),
                       ),
                       TableCell(
@@ -366,7 +363,7 @@ class _GameScreenState extends State<GameScreen> {
                       TableCell(
                         child: createButton(25),
                       ),
-                      TableCell(
+                      const TableCell(
                         child: Text(''),
                       ),
                     ]),
