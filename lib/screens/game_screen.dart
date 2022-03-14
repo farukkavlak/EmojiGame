@@ -1,4 +1,7 @@
 // ignore_for_file: file_names, must_be_immutable, use_key_in_widget_constructors
+import 'dart:math';
+
+import 'package:emoji_game/utilities/pref_util.dart';
 import 'package:flutter/material.dart';
 import 'package:emoji_game/utilities/constants.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -16,13 +19,15 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
-  int hangState = 0;
+  late String levelNO;
   List<Flexible> emojiList = [];
   late String word;
   late String hiddenWord;
   List<bool> buttonStatus = [];
   bool finishedGame = false;
   bool resetGame = false;
+  List<String> hintLetters = [];
+
   Widget createButton(index) {
     return AnimatedButton(
       width: 50,
@@ -45,10 +50,14 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   List<Flexible> createEmoji() {
-
-    if (emojiList.length == widget.categoryName[widget.indexNumber]['emojis'].length) {
+    levelNO = widget.categoryName[widget.indexNumber]['name'].toString();
+    levelNO += widget.indexNumber.toString();
+    if (emojiList.length ==
+        widget.categoryName[widget.indexNumber]['emojis'].length) {
     } else {
-      for (int i = 0; i < widget.categoryName[widget.indexNumber]['emojis'].length; i++) {
+      for (int i = 0;
+          i < widget.categoryName[widget.indexNumber]['emojis'].length;
+          i++) {
         emojiList.add(Flexible(
           child: Container(
             width: 60,
@@ -69,7 +78,8 @@ class _GameScreenState extends State<GameScreen> {
             child: FittedBox(
               fit: BoxFit.contain,
               child: Center(
-                child: Text(widget.categoryName[widget.indexNumber]['emojis'][i]['emoji']),
+                child: Text(widget.categoryName[widget.indexNumber]['emojis'][i]
+                    ['emoji']),
               ),
             ),
           ),
@@ -90,6 +100,7 @@ class _GameScreenState extends State<GameScreen> {
 
   @override
   void initState() {
+    //_checkFirstTime();
     super.initState();
     initWords();
     removeEmojiList();
@@ -97,9 +108,16 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void initWords() {
+    hintLetters = [];
     finishedGame = false;
     resetGame = false;
     word = widget.categoryName[widget.indexNumber]['name'];
+    for (int i = 0; i < word.length; i++) {
+      if (word[i] != " ") {
+        hintLetters.add(word[i]);
+      }
+    }
+
     buttonStatus = List.generate(26, (index) {
       return true;
     });
@@ -134,6 +152,7 @@ class _GameScreenState extends State<GameScreen> {
     }
     bool check = false;
     setState(() {
+     
       for (int i = 0; i < word.length; i++) {
         if (word[i] == kAlphabet[index]) {
           check = true;
@@ -141,10 +160,10 @@ class _GameScreenState extends State<GameScreen> {
         }
       }
       if (!check) {
-        hangState += 1;
+        PreferenceUtils.instance.setHP(PreferenceUtils.instance.getHP()-1);
       }
       buttonStatus[index] = false;
-      if (hangState == 6) {
+      if (PreferenceUtils.instance.getHP() == 0) {
         finishedGame = true;
         Alert(
           context: context,
@@ -173,6 +192,7 @@ class _GameScreenState extends State<GameScreen> {
         ).show();
       }
       if (hiddenWord == word) {
+        PreferenceUtils.instance.setHP(PreferenceUtils.instance.getHP()+1);
         finishedGame = true;
         Alert(
           context: context,
@@ -188,7 +208,9 @@ class _GameScreenState extends State<GameScreen> {
                 size: 30.0,
               ),
               onPressed: () {
-                setState(() {
+                setState(() {              
+                  PreferenceUtils.instance.setLevel(levelNO);
+                  PreferenceUtils.instance.setHint(PreferenceUtils.instance.getHint()+1);
                   Navigator.pop(context);
                   widget.indexNumber++;
                   initWords();
@@ -206,15 +228,6 @@ class _GameScreenState extends State<GameScreen> {
     });
   }
 
-  void newGame() {
-    setState(() {
-      finishedGame = false;
-      resetGame = false;
-      initWords();
-      initEmojiList();
-    });
-  }
-
   void returnHomePage() {
     Navigator.pop(context);
   }
@@ -224,6 +237,44 @@ class _GameScreenState extends State<GameScreen> {
     return Scaffold(
       backgroundColor: kLightYellow,
       appBar: AppBar(
+        centerTitle: true,
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text(
+              "❤️",
+            ),
+            Text(PreferenceUtils.instance.getHP().toString(),
+                      style: const TextStyle(
+                        color: Colors.black54,
+                      )),
+            TextButton(
+              child: const Text("🔑"),
+              onPressed: () {
+                setState(() {
+                  if (PreferenceUtils.instance.getHint() == 0) {
+                    Alert(
+                            context: context,
+                            style: kFailedAlertStyle,
+                            type: AlertType.error,
+                            title: "No more hints")
+                        .show();
+                  } else {
+                    int hintNumber = Random().nextInt(hintLetters.length);
+                    wordPress(kAlphabet.indexOf(hintLetters[hintNumber]));
+                    hintLetters.removeWhere(
+                        (element) => element == hintLetters[hintNumber]);
+                  PreferenceUtils.instance.setHint(PreferenceUtils.instance.getHint()-1);
+                  }
+                });
+              },
+            ),
+            Text(PreferenceUtils.instance.getHint().toString(),
+                      style: const TextStyle(
+                        color: Colors.black54,
+                      )),
+          ],
+        ),
         backgroundColor: kLightYellow,
         elevation: 0,
         leading: IconButton(

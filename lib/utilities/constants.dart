@@ -91,3 +91,4 @@ const kDialogButtonColor = Color(0x00000000);
 const kButtonColor = Color.fromRGBO(48, 147, 152, 1);
 const kButtonColorFalse = Color.fromRGBO(16, 67, 70, 1);
 const kEmojiListCardcolor = Color.fromRGBO(228, 100, 113, 1);
+const kEmojiListCardColorCompleted = Color.fromRGBO(219, 26, 45, 1);
