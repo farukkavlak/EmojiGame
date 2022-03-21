@@ -1,13 +1,13 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
-
-import 'package:emoji_game/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:emoji_game/screens/movies_screen.dart';
 import 'package:emoji_game/screens/series_screen.dart';
 import 'package:emoji_game/screens/games_screen.dart';
 import 'package:emoji_game/utilities/constants.dart';
 import 'package:emoji_game/widgets/category_card.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:emoji_game/screens/literature_screen.dart';
+import 'package:emoji_game/screens/musics_screen.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -25,29 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: kLightYellow,
         elevation: 0,
-        leading: IconButton(
-          padding: const EdgeInsets.all(20.0),
-          icon: const Icon(
-            FontAwesomeIcons.store,
-            color: kRed,
-          ),
-          onPressed: () {},
-        ),
-        actions: [
-          IconButton(
-            padding: const EdgeInsets.all(20.0),
-            icon: const Icon(
-              FontAwesomeIcons.cog,
-              color: kRed,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SettingsScreen()),
-              );
-            },
-          ),
-        ],
       ),
       body: Center(
         child: Column(
@@ -77,13 +54,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     const CategoryCard(
                       cardColor: kRed,
                       title: 'Literature',
-                      child: GamesScreen(),
+                      child: LitScreen(),
                       imageDirectory: 'images/literature.png',
                     ),
                     const CategoryCard(
                       cardColor: kRed,
                       title: 'Musics',
-                      child: GamesScreen(),
+                      child: MusicsScreen(),
                       imageDirectory: 'images/musics.png',
                     ),
                   ],

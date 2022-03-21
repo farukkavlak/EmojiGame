@@ -11,21 +11,23 @@ List series = [
       {
         "emoji": "👑",
       },
-    ]
+    ],
+    'info': 'Winter is coming.',
   },
   {
     'name': "BROOKLYN NINE NINE",
     'emojis': [
       {
-        "emoji": "9️",
-      },
-      {
-        "emoji": "9️",
-      },
-      {
         "emoji": "👮",
+      },
+      {
+        "emoji": "9️⃣",
+      },
+      {
+        "emoji": "9️⃣",
       }
-    ]
+    ],
+    'info' : 'Cool, cool, cool, cool, cool. No doubt, no doubt, no doubt.',
   },
   {
     'name': "DOCTOR WHO",
@@ -39,7 +41,8 @@ List series = [
       {
         "emoji": "❓",
       },
-    ]
+    ],
+    'info' : 'Some people live more in twenty years than others do in eighty. It\'s not the time that matters, it\'s the person',
   },
   {
     'name': "LOST",
@@ -47,7 +50,8 @@ List series = [
       {
         "emoji": "❓",
       },
-    ]
+    ],
+    'info' : 'Not Penny\'s Boat'
   },
   {
     'name': "STRANGER THINGS",
@@ -59,12 +63,13 @@ List series = [
         "emoji": "🚲",
       },
       {
-        "emoji": "1️",
+        "emoji": "1️⃣",
       },
       {
-        "emoji": "1️",
+        "emoji": "1️⃣",
       },
-    ]
+    ],
+    'info' : 'What is friend?',
   },
   {
     'name': "BREAKING BAD",
@@ -75,7 +80,8 @@ List series = [
       {
         "emoji": "💰",
       },
-    ]
+    ],
+    'info' : 'I\'m not in the danger, I\'m the danger.',
   },
   {
     'name': "HOW I MET YOUR MOTHER",
@@ -86,7 +92,8 @@ List series = [
       {
         "emoji": "🍍",
       },
-    ]
+    ],
+    'info' : 'Legen\nWait for it\nDary',
   },
   {
     'name': "RUSSIAN DOLL",
@@ -100,7 +107,8 @@ List series = [
       {
         "emoji": "🔁",
       }
-    ]
+    ],
+    'info' : 'What i do with my time is my business, my choice, baby.',
   },
   {
     'name': "SQUID GAME",
@@ -111,7 +119,8 @@ List series = [
       {
         "emoji": "🎮",
       },
-    ]
+    ],
+    'info' : 'Life is like a game, there are many player. If you don\'t play with them, they\'ll play with you.', 
   },
   {
     'name': "X FILES",
@@ -125,6 +134,7 @@ List series = [
       {
         "emoji": "📁",
       }
-    ]
+    ],
+    'info' : 'The Truth Is Out There, But So Are Lies.'
   },
 ];

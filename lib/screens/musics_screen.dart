@@ -28,16 +28,6 @@ class _MusicsScreenState extends State<MusicsScreen> {
             Navigator.pop(context);
           },
         ),
-        actions: [
-          IconButton(
-            padding: const EdgeInsets.all(20.0),
-            icon: const Icon(
-              Icons.shopping_cart_outlined,
-              color: Colors.black54,
-            ),
-            onPressed: () {},
-          ),
-        ],
       ),
       body: GridView(
         children: [

@@ -198,8 +198,7 @@ class _GameScreenState extends State<GameScreen> {
           context: context,
           style: kSuccessAlertStyle,
           type: AlertType.success,
-          title: word,
-//          desc: "You guessed it right!",
+          title: widget.categoryName[widget.indexNumber]['info'].toString(),
           buttons: [
             DialogButton(
               radius: BorderRadius.circular(10),

@@ -11,7 +11,8 @@ List movies = [
       {
         "emoji": "🎩",
       },
-    ]
+    ],
+    'info' : "Welcome my friends. Welcome to my chocolate factory.",
   },
   {
     'name': "FINDING NEMO",
@@ -22,7 +23,8 @@ List movies = [
       {
         "emoji": "🐟",
       }
-    ]
+    ],
+    'info' : "When life gets you down, you know what you gotta do? Just keep swimming",
   },
   {
     'name': "WINNIE THE POOH",
@@ -39,7 +41,8 @@ List movies = [
       {
         "emoji": "🐅",
       }
-    ]
+    ],
+    'info' : "We'll be friends forever won't we pooh? Even Longer",
   },
   {
     'name': "GODZILLA",
@@ -56,7 +59,8 @@ List movies = [
       {
         "emoji": "🏢",
       },
-    ]
+    ],
+    'info' : "ROOOAAAAARRRR!!!!!",
   },
   {
     'name': "TITANIC",
@@ -73,7 +77,8 @@ List movies = [
       {
         "emoji": "💥",
       },
-    ]
+    ],
+    'info' : "When You Got Nothing, You Got Nothing To Lose.",
   },
   {
     'name': "ICE AGE",
@@ -90,62 +95,68 @@ List movies = [
       {
         "emoji": "🐯",
       },
-    ]
+    ],
+    'info': 'Ahhhh, You know me. I am too lazy to hold a grudge',
   },
   {
-    'name': "UP",
+    'name': "GHOST BUSTER",
+     
     'emojis': [
       {
-        "emoji": "👴",
+        "emoji": "👻",
       },
       {
-        "emoji": "🏠",
+        "emoji": "🔫",
       },
-      {
-        "emoji": "🎈",
-      }
-    ]
+    ],
+    'info' : 'South America. Its like America? But south.'
   },
   {
-    'name': "UP",
+    'name': "JOHN WICK",
     'emojis': [
       {
-        "emoji": "👴",
+        "emoji": "🐕",
       },
       {
-        "emoji": "🏠",
+        "emoji": "🔫",
       },
       {
-        "emoji": "🎈",
+        "emoji": "🤜",
       }
-    ]
+    ],
+    'info' : 'Whoever comes, whoever it is. I will kill them all.'
   },
   {
-    'name': "UP",
+    'name': "HARRY POTTER",
     'emojis': [
       {
-        "emoji": "👴",
+        "emoji": "⚯",
       },
       {
-        "emoji": "🏠",
+        "emoji": "⚡",
       },
       {
-        "emoji": "🎈",
+        "emoji": "🧹",
       }
-    ]
+    ],
+    'info' : 'Expecto Patronum.'
   },
   {
-    'name': "UP",
+    'name': "BACK TO THE FUTURE",
     'emojis': [
       {
-        "emoji": "👴",
+        "emoji": "⏰",
       },
       {
-        "emoji": "🏠",
+        "emoji": "⬅️",
       },
       {
-        "emoji": "🎈",
+        "emoji": "🚗",
+      },
+      {
+        "emoji": "💨",
       }
-    ]
+    ],
+    'info' : 'Wait a minute, Doc. Are you telling me that you built a time machine?'
   },
 ];
