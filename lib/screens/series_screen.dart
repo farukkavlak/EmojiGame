@@ -11,6 +11,7 @@ class SeriesScreen extends StatefulWidget {
 }
 
 class _SeriesScreenState extends State<SeriesScreen> {
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,51 +46,101 @@ class _SeriesScreenState extends State<SeriesScreen> {
             cardColor: kEmojiListCardcolor,
             emojiIndex: 0,
             emojis: series,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 1,
             emojis: series,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             emojis: series,
             cardColor: kEmojiListCardcolor,
             emojiIndex: 2,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             emojis: series,
             cardColor: kEmojiListCardcolor,
             emojiIndex: 3,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 4,
             emojis: series,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 5,
             emojis: series,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 6,
             emojis: series,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 7,
             emojis: series,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 8,
             emojis: series,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 9,
             emojis: series,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
         ],
         gridDelegate:

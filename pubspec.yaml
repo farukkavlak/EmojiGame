@@ -41,7 +41,10 @@ dependencies:
   animated_splash_screen: ^1.2.0
   shared_preferences: ^2.0.13
   font_awesome_flutter: ^9.2.0
+  
 dev_dependencies:
+  integration_test:
+    sdk: flutter
   flutter_test:
     sdk: flutter
 

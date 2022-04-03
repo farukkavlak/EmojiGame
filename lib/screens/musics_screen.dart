@@ -35,51 +35,101 @@ class _MusicsScreenState extends State<MusicsScreen> {
             cardColor: kEmojiListCardcolor,
             emojiIndex: 0,
             emojis: musics,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 1,
             emojis: musics,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 2,
             emojis: musics,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 3,
             emojis: musics,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 4,
             emojis: musics,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 5,
             emojis: musics,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 6,
             emojis: musics,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 7,
             emojis: musics,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 8,
             emojis: musics,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 9,
             emojis: musics,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
         ],
         gridDelegate:

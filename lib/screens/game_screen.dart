@@ -4,8 +4,8 @@ import 'dart:math';
 import 'package:emoji_game/utilities/pref_util.dart';
 import 'package:flutter/material.dart';
 import 'package:emoji_game/utilities/constants.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:animated_button/animated_button.dart';
+import 'package:emoji_game/widgets/custom_alert.dart';
 
 class GameScreen extends StatefulWidget {
   List categoryName;
@@ -19,7 +19,8 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
-  late String levelNO;
+  late String levelName;
+  late String levelNameNext;
   List<Flexible> emojiList = [];
   late String word;
   late String hiddenWord;
@@ -50,8 +51,8 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   List<Flexible> createEmoji() {
-    levelNO = widget.categoryName[widget.indexNumber]['name'].toString();
-    levelNO += widget.indexNumber.toString();
+    levelName = widget.categoryName[widget.indexNumber]['name'].toString();
+    levelNameNext = widget.categoryName[widget.indexNumber+1]['name'].toString();
     if (emojiList.length ==
         widget.categoryName[widget.indexNumber]['emojis'].length) {
     } else {
@@ -152,78 +153,70 @@ class _GameScreenState extends State<GameScreen> {
     }
     bool check = false;
     setState(() {
-     
+      
       for (int i = 0; i < word.length; i++) {
         if (word[i] == kAlphabet[index]) {
           check = true;
+        }
+      }
+      if (!check&&PreferenceUtils.instance.getHP()!=0) {
+        PreferenceUtils.instance.setHP(PreferenceUtils.instance.getHP()-1);
+      }
+      if (PreferenceUtils.instance.getHP() == 0) {
+        //Error alert
+        finishedGame = true;
+        showDialog(
+              barrierColor: Colors.black26,
+              context: context,
+              builder: (context) {
+                return CustomAlertDialog(
+                  title: "Game Over",
+                  description: "",
+                  type : "Error",
+                  text1: "Try Again▶️",
+                  text2: "Cancel",
+                  onPressed :(){},
+                );
+        });
+      }
+      for (int i = 0; i < word.length; i++) {
+        if (word[i] == kAlphabet[index]) {
           hiddenWord = hiddenWord.replaceFirst(RegExp('_'), word[i], i);
         }
       }
-      if (!check) {
-        PreferenceUtils.instance.setHP(PreferenceUtils.instance.getHP()-1);
-      }
       buttonStatus[index] = false;
-      if (PreferenceUtils.instance.getHP() == 0) {
-        finishedGame = true;
-        Alert(
-          context: context,
-          style: kFailedAlertStyle,
-          type: AlertType.error,
-          title: word,
-//            desc: "You Lost!",
-          buttons: [
-            DialogButton(
-              radius: BorderRadius.circular(10),
-              child: const Icon(
-                Icons.arrow_forward,
-                size: 30.0,
-              ),
-              onPressed: () {
-                setState(() {
-                  Navigator.pop(context);
-                  initWords();
-                });
-              },
-              width: 127,
-              color: kDialogButtonColor,
-              height: 52,
-            ),
-          ],
-        ).show();
-      }
       if (hiddenWord == word) {
         PreferenceUtils.instance.setHP(PreferenceUtils.instance.getHP()+1);
+        
         finishedGame = true;
-        Alert(
-          context: context,
-          style: kSuccessAlertStyle,
-          type: AlertType.success,
-          title: widget.categoryName[widget.indexNumber]['info'].toString(),
-          buttons: [
-            DialogButton(
-              radius: BorderRadius.circular(10),
-              child: const Icon(
-                Icons.arrow_forward,
-                size: 30.0,
-              ),
-              onPressed: () {
-                setState(() {              
-                  PreferenceUtils.instance.setLevel(levelNO);
-                  PreferenceUtils.instance.setHint(PreferenceUtils.instance.getHint()+1);
-                  Navigator.pop(context);
-                  widget.indexNumber++;
-                  initWords();
-                  removeEmojiList();
-                  initEmojiList();
-                });
-              },
-              width: 127,
-              color: kDialogButtonColor,
-              height: 52,
-            )
-          ],
-        ).show();
+        showDialog(
+              barrierColor: Colors.black26,
+              context: context,
+              builder: (context) {
+                return CustomAlertDialog(
+                  title: word,
+                  description: widget.categoryName[widget.indexNumber]['info'].toString(), 
+                  type: 'Success',
+                  text1: 'Continue',
+                  text2: 'Cancel',
+                  onPressed: (){
+                    setState(() {
+                      PreferenceUtils.instance.setLevel(levelName,false);
+                      PreferenceUtils.instance.setLevel(levelNameNext,true);
+                      PreferenceUtils.instance.setHint(PreferenceUtils.instance.getHint()+1);
+                      Navigator.pop(context);
+                      widget.indexNumber++;
+                      initWords();
+                      removeEmojiList();
+                      initEmojiList();
+                    });
+                  },
+                );
+        });
       }
+      
+
+      
     });
   }
 
@@ -252,12 +245,19 @@ class _GameScreenState extends State<GameScreen> {
               onPressed: () {
                 setState(() {
                   if (PreferenceUtils.instance.getHint() == 0) {
-                    Alert(
-                            context: context,
-                            style: kFailedAlertStyle,
-                            type: AlertType.error,
-                            title: "No more hints")
-                        .show();
+                      showDialog(
+                        barrierColor: Colors.black26,
+                        context: context,
+                        builder: (context) {
+                          return  CustomAlertDialog(
+                            title: 'Gain a hint',
+                            description: '', 
+                            type: 'HintError',
+                            text1: '▶️',
+                            text2: 'Cancel',
+                            onPressed: (){},
+                );
+        });
                   } else {
                     int hintNumber = Random().nextInt(hintLetters.length);
                     wordPress(kAlphabet.indexOf(hintLetters[hintNumber]));
@@ -286,16 +286,6 @@ class _GameScreenState extends State<GameScreen> {
             Navigator.pop(context);
           },
         ),
-        actions: [
-          IconButton(
-            padding: const EdgeInsets.all(20.0),
-            icon: const Icon(
-              Icons.shopping_cart_outlined,
-              color: Colors.black54,
-            ),
-            onPressed: () {},
-          ),
-        ],
       ),
       body: SafeArea(
         child: Column(

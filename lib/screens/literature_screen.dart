@@ -35,51 +35,101 @@ class _LitScreenState extends State<LitScreen> {
             cardColor: kEmojiListCardcolor,
             emojiIndex: 0,
             emojis: literature,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 1,
             emojis: literature,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 2,
             emojis: literature,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 3,
             emojis: literature,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 4,
             emojis: literature,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 5,
             emojis: literature,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 6,
             emojis: literature,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 7,
             emojis: literature,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 8,
             emojis: literature,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 9,
             emojis: literature,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
         ],
         gridDelegate:

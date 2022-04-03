@@ -43,10 +43,10 @@ class PreferenceUtils {
     }
     return _preferences?.getInt("Hint") ?? 5;
   }
-  Future<bool> setLevel(String levelNo) async {
+  Future<bool> setLevel(String levelNo,bool check) async {
     //print("set");
     //print(levelNo);
-    return await _preferences!.setBool(levelNo, true);
+    return await _preferences!.setBool(levelNo, check);
   }
   bool getLevel(String key) {
     //print("get");

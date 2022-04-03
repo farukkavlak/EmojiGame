@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_button/animated_button.dart';
 
-class CategoryCard extends StatelessWidget {
+class CategoryCard extends StatefulWidget {
   final Color cardColor;
   final String title;
   final Widget child;
@@ -13,6 +13,12 @@ class CategoryCard extends StatelessWidget {
     required this.child,
     required this.imageDirectory,
   });
+
+  @override
+  State<CategoryCard> createState() => _CategoryCardState();
+}
+
+class _CategoryCardState extends State<CategoryCard> {
   @override
   Widget build(BuildContext context) {
     double widthMain = MediaQuery.of(context).size.width;
@@ -26,10 +32,10 @@ class CategoryCard extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => child),
+            MaterialPageRoute(builder: (context) => widget.child),
           );
         },
-        color: cardColor,
+        color: widget.cardColor,
         child: Row(
           children: [
             SizedBox(
@@ -38,14 +44,14 @@ class CategoryCard extends StatelessWidget {
             Container(
               width: widthMain*0.27,
               child: Image.asset(
-                imageDirectory,
+                widget.imageDirectory,
               ),
             ),
             SizedBox(
               width: widthMain*0.1,
             ),
             Text(
-              title,
+              widget.title,
               style: const TextStyle(
                 fontFamily: 'Poppins',
                 fontSize: 25, //customize size here

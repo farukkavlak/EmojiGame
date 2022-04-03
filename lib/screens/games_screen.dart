@@ -33,43 +33,93 @@ class _GamesScreenState extends State<GamesScreen> {
         children: [
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
-            emojiIndex: 0, emojis: games,
+            emojiIndex: 0, emojis: games, 
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 1,emojis: games,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 2,emojis: games,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 3,emojis: games,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 4,emojis: games,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 5,emojis: games,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 6,emojis: games,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 7,emojis: games,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 8,emojis: games,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 9,emojis: games,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
         ],
         gridDelegate:

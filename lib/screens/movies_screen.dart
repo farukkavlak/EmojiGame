@@ -35,51 +35,101 @@ class _MoviesScreenState extends State<MoviesScreen> {
             cardColor: kEmojiListCardcolor,
             emojiIndex: 0,
             emojis: movies,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 1,
             emojis: movies,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 2,
             emojis: movies,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 3,
             emojis: movies,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 4,
             emojis: movies,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 5,
             emojis: movies,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 6,
             emojis: movies,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 7,
             emojis: movies,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 8,
             emojis: movies,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
           EmojiListCard(
             cardColor: kEmojiListCardcolor,
             emojiIndex: 9,
             emojis: movies,
+            refresh: (){
+              setState(() {
+                
+              });
+            },
           ),
         ],
         gridDelegate:
